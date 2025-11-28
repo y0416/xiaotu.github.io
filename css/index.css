@@ -1,0 +1,530 @@
+/* 首页内容的样式 */
+/* banner */
+.banner {
+  height: 500px;
+  background-color: #F5F5F5;
+}
+
+.banner .wrapper {
+  position: relative;
+  height: 500px;
+  /* 用于裁切绝对定位的幻灯片 */
+  overflow: hidden;
+  background-color: transparent;
+}
+
+/* 图片 */
+.banner .pic {
+  /* 幻灯片容器，内部 li 绝对定位覆盖整个 wrapper */
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.banner .pic li {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: none; /* 由 JS 控制显示 */
+}
+
+.banner .pic li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 侧导航 */
+.subnav {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 250px;
+  height: 500px;
+  background-color: rgba(0,0,0,0.42);
+}
+
+.subnav li {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 30px;
+  padding-right: 12px;
+  height: 50px;
+  /* background-color: pink; */
+  line-height: 50px;
+  color: #fff;
+
+  cursor: pointer;
+}
+
+/* a所有都是小字，分类是大字 */
+.subnav li a {
+  margin-right: 5px;
+  font-size: 14px;
+  color: #fff;
+}
+
+.subnav li .classify {
+  margin-right: 14px;
+  font-size: 16px;
+}
+
+.subnav li .iconfont {
+  font-size: 14px;
+}
+
+.subnav li:hover {
+  background-color: #00BE9A;
+}
+
+/* 圆点指示器 */
+.banner ol,
+.banner ol.dots {
+  position: absolute;
+  bottom: 17px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.banner ol li {
+  margin-left: 8px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.banner ol i {
+  display: block;
+  margin: 4px;
+  width: 14px;
+  height: 14px;
+  background-color: rgba(255,255,255,0.5);
+  border-radius: 50%;
+}
+
+/* 选中：li半透明； i白色 */
+.banner ol .current {
+  background-color: rgba(255,255,255,0.5);
+}
+
+.banner ol .current i {
+  background-color: #fff;
+}
+
+/* 箭头样式 */
+.banner .arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: rgba(0,0,0,0.35);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.banner .arrow.prev {
+  left: 60px;
+}
+
+.banner .arrow.next {
+  right: 60px;
+}
+
+.banner .arrow .iconfont {
+  font-size: 18px;
+  line-height: 1; /* 确保图标垂直居中 */
+}
+
+/* 可选：窄屏时把箭头移回更靠边的距离 */
+@media (max-width: 800px) {
+  .banner .arrow.prev { left: 16px; }
+  .banner .arrow.next { right: 16px; }
+}
+
+/* 新鲜好物 */
+/* 标题 -- 公共样式 */
+.title {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  height: 42px;
+  /* background-color: pink; */
+}
+
+.title .left {
+  display: flex;
+}
+
+.title .left h3 {
+  margin-right: 35px;
+  font-size: 30px;
+}
+
+.title .left p {
+  align-self: flex-end;
+  color: #A1A1A1;
+}
+
+.title .right .more {
+  line-height: 42px;
+  color: #A1A1A1;
+}
+
+.title .right .more .iconfont {
+  margin-left: 10px;
+}
+
+/* 好物内容 -- 公共样式 */
+.bd ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bd li {
+  width: 304px;
+  height: 404px;
+  background-color: #EEF9F4;
+}
+
+.bd li .pic {
+  width: 304px;
+  height: 304px;
+}
+
+.bd li .txt {
+  text-align: center;
+}
+
+.bd li h4 {
+  margin-top: 18px;
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+.goods .bd p {
+  font-size: 18px;
+  color: #AA2113;
+}
+
+.goods .bd p span {
+  margin-left: 3px;
+  font-size: 22px;
+}
+
+/* 人气推荐 */
+.recommend .bd li {
+  background-color: #fff;
+}
+
+.recommend .bd p {
+  color: #A1A1A1;
+}
+
+/* 热门品牌 */
+.brand {
+  margin-top: 60px;
+  height: 468px;
+  background-color: #F5F5F5;
+}
+
+.brand .wrapper {
+  overflow: hidden;
+  height: 468px;
+  /* background-color: pink; */
+}
+
+.brand .title {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.brand .button {
+  position: absolute;
+  right: 0;
+  bottom: -25px;
+
+  /* 让a在一行显示，宽高生效 */
+  display: flex;
+}
+
+.brand .button a {
+  margin-left: 12px;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  color: #fff;
+}
+
+.brand .button .prev {
+  background-color: #ddd;
+}
+
+.brand .button .next {
+  /* background-color: #00BE9A; */
+  background-color: #ddd;
+}
+
+/* 鼠标悬停时：两个按钮都显示绿色背景 (#00BE9A)，文字为 #ddd；离开恢复 */
+.brand .button a {
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+.brand .button a:hover {
+  background-color: #00BE9A;
+  color: #ddd;
+}
+
+
+.brand .bd li {
+  width: 244px;
+  height: 306px;
+}
+
+/* 生鲜 */
+.fresh .title {
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
+
+.title .right {
+  display: flex;
+}
+
+.title .right ul {
+  display: flex;
+  margin-top: 10px;
+  margin-right: 58px;
+}
+
+.title .right ul a {
+  display: block;
+  margin-left: 6px;
+  padding: 0 7px;
+  height: 20px;
+  /* background-color: pink; */
+  line-height: 20px;
+}
+
+.title .right ul .active {
+  /* background-color: #00BE9A; */
+  color: #fff;
+}
+
+/* 悬停时小导航项变为绿色背景并白字，鼠标移开恢复 */
+.title .right ul a:hover {
+  background-color: #00BE9A;
+  color: #fff;
+}
+
+/* 生鲜内容 */
+.content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content .left {
+  width: 248px;
+  height: 610px;
+  /* background-color: pink; */
+}
+
+.content .right {
+  width: 968px;
+  height: 610px;
+  /* background-color: pink; */
+}
+
+.content .right ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.content .right li {
+  position: relative;
+  padding: 10px 21px 0;
+  width: 242px;
+  height: 305px;
+  border: 2px solid #fff;
+
+  /* 为了隐藏绿色cover */
+  overflow: hidden;
+}
+
+/* 悬停时：生鲜右侧每个卡片内文字变为品牌绿 (#00BE9A)；同时覆盖价格颜色 */
+.content .right li a {
+  transition: color 0.18s ease;
+}
+.content .right li .price {
+  transition: color 0.18s ease;
+}
+.content .right li:hover a {
+  color: #00BE9A;
+}
+.content .right li:hover .price {
+  color: #00BE9A;
+}
+
+/* 产品内容 */
+.content .pic {
+  width: 200px;
+  height: 180px;
+}
+
+.content .info {
+  margin-top: 14px;
+  margin-bottom: 5px;
+  height: 60px;
+  line-height: 19px;
+}
+
+.content .price {
+  color: #AF2F22;
+}
+
+.content .price span {
+  margin-left: 5px;
+  font-size: 22px;
+}
+
+/* 产品底部绿色区域 */
+.content li .cover {
+  position: absolute;
+  left: 0;
+  /* bottom: 0; */
+  bottom: -86px;
+  padding-top: 15px;
+  width: 242px;
+  height: 84px;
+  background-color: #00BE9A;
+  text-align: center;
+  color: #fff;
+  transition: all 0.5s;
+}
+
+
+.content .cover p:nth-child(1) {
+  font-size: 18px;
+}
+
+.content .cover p:nth-child(2) {
+  margin: 3px auto 6px;
+  width: 120px;
+  height: 1px;
+  background-color: rgba(255,255,255,0.11);
+}
+
+.content .cover p:nth-child(3) {
+  font-size: 13px;
+} 
+
+.content .cover p:nth-child(3) .iconfont {
+  font-size: 14px;
+}
+
+/* 鼠标悬停到li，显示cover，改变位置 */
+.content .right li:hover .cover {
+  bottom: 0;
+}
+
+.content .right li:hover {
+  border-color: transparent;
+}
+
+/* 最新专题 */
+.topic {
+  margin-bottom: 40px;
+}
+
+.topic .title {
+  margin-top: 100px;
+}
+
+.topic-bd ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.topic-bd li {
+  width: 405px;
+  height: 355px;
+  /* background-color: pink; */
+}
+
+.topic-bd .pic {
+  position: relative;
+  width: 405px;
+  height: 288px;
+}
+
+.topic-bd .txt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  width: 405px;
+  height: 67px;
+  /* background-color: skyblue; */
+  font-size: 14px;
+  color: #666;
+}
+
+.topic-bd .txt .left {
+  display: flex;
+}
+
+.topic-bd .txt .left p {
+  margin-right: 20px;
+}
+
+.topic-bd .txt .left p:nth-child(1) i {
+  color: #AA2113;
+}
+
+/* 定位区域 - 文字 */
+.topic-bd .cover {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 15px;
+  width: 405px;
+  height: 90px;
+  background-image: linear-gradient(180deg, rgba(137,137,137,0.00) 0%, rgba(0,0,0,0.90) 100%);
+}
+
+.topic-bd .cover .left {
+  color: #fff;
+}
+
+.topic-bd .cover .left h4 {
+  margin-bottom: 6px;
+  font-size: 20px;
+}
+
+.topic-bd .cover .right {
+  padding: 0 7px;
+  height: 25px;
+  background-color: #fff;
+  color: #AA2113;
+  font-size: 15px;
+}
+
+.topic-bd .cover .right span {
+  font-size: 18px;
+}
